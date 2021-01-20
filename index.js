@@ -4,7 +4,7 @@ var fs = require('fs');
 var glob = require('glob');
 var path = require('path');
 var s = require('underscore.string');
-var yamlConfig = require('yaml-config');
+var yaml = require('js-yaml');
 var ejs = require('ejs');
 
 var $ = module.exports = {};
@@ -26,7 +26,7 @@ var mapRequire = function(moduleName, dirs) {
         var splitRefFile = function(ref, split, file, isIndex) {
             if (file.indexOf('.yaml') !== -1) {
                 ref[split] = ref[split] || {};
-                return _.extend(ref[split], yamlConfig.readConfig(path.resolve(file)));
+                return _.extend(ref[split], yaml.load(fs.readFileSync(path.resolve(file))));
             }
             if (file.indexOf('.ejs') !== -1) {
                 var readFile = fs.readFileSync(path.resolve(file), {encoding: 'utf8'});
