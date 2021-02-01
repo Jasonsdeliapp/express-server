@@ -20,17 +20,16 @@ $.server = $.express();
 
 var readConfig = function(configFilePath) {
     var rawConfig = yaml.load(fs.readFileSync(configFilePath));
-    var defaultConfig = rawConfig.default;
-    var fullConfig = {};
+    var fullConfig = rawConfig.default;
 
     _.forEach(rawConfig, function(thisConfig, thisKey) {
         if(thisKey === process.env.NODE_ENV) {
-            fullConfig = deepmerge(defaultConfig, thisConfig);
+            fullConfig = deepmerge(fullConfig, thisConfig);
         }
     });
 
     return fullConfig;
-}
+};
 
 var mapRequire = function(moduleName, dirs) {
     var log = [];
