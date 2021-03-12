@@ -19,6 +19,7 @@ $.express = require('express');
 $.server = $.express();
 
 var readConfig = function(configFilePath) {
+    // New config reader to eliminate earlier dep
     var rawConfig = yaml.load(fs.readFileSync(configFilePath));
     var fullConfig = rawConfig.default;
 
