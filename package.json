@@ -8,17 +8,17 @@
   },
   "dependencies": {
     "deepmerge": "4.2.2",
-    "ejs": "2.5.5",
-    "express": "4.17.1",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
     "glob": "7.0.3",
     "js-yaml": "4.0.0",
-    "moment": "2.29.1",
-    "underscore": "1.12.0",
+    "moment": "^2.30.1",
+    "underscore": "^1.13.7",
     "underscore.string": "3.3.5"
   },
   "devDependencies": {
-    "gulp": "4.0.2",
-    "gulp-mocha": "7.0.2",
+    "gulp": "^5.0.0",
+    "gulp-mocha": "^10.0.1",
     "should": "8.2.1",
     "yargs": "3.32.0"
   }
